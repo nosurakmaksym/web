@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERECUP | Відеокарти</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container header-inner">
+            <button id="burger-btn" class="burger-menu">&#9776;</button>
+            <a href="#" class="logo">
+                <h2>PERECUP</h2>
+            </a>
+            <button class="btn-catalog" id="catalog-nav-btn">
+                <span class="icon-grid">⊞</span> Каталог
+            </button>
+            <form class="search-form">
+                <input type="search" id="search-input" placeholder="Пошук відеокарт...">
+                <button type="button" id="search-btn">Знайти</button>
+            </form>
+            <nav id="main-nav" class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#">Акції</a></li>
+                    <li><a href="#">Збірка ПК</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <button id="auth-btn" class="btn-login">Увійти</button>
+                <button id="cart-btn" class="btn-cart">
+                    Кошик <span id="cart-counter" class="cart-counter">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero-section">
+            <div class="carousel-container" id="promo-carousel">
+                <div class="carousel-track" id="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="img/hero/1.webp"
+                            alt="Акція 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/hero/2.webp"
+                            alt="Акція 2">
+                    </div>
+                </div>
+                <button class="carousel-btn prev-btn" id="carousel-prev">&#10094;</button>
+                <button class="carousel-btn next-btn" id="carousel-next">&#10095;</button>
+                <div class="carousel-dots" id="carousel-dots"></div>
+            </div>
+        </section>
+
+        <div class="main-layout">
+
+            <aside class="left-sidebar">
+                <h3 class="sidebar-title">Фільтри</h3>
+
+                <div class="filter-group-vert">
+                    <label>Графічний чип:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" class="vendor-filter" value="NVIDIA"> NVIDIA</label>
+                        <label><input type="checkbox" class="vendor-filter" value="AMD"> AMD</label>
+                        <label><input type="checkbox" class="vendor-filter" value="Intel"> Intel</label>
+                    </div>
+                </div>
+
+                <div class="filter-group-vert" style="margin-top: 20px;">
+                    <label>Сімейство процесора:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" class="family-filter" value="RTX 40"> GeForce RTX 40</label>
+                        <label><input type="checkbox" class="family-filter" value="RTX 30"> GeForce RTX 30</label>
+                        <label><input type="checkbox" class="family-filter" value="RX 7000"> Radeon RX 7000</label>
+                        <label><input type="checkbox" class="family-filter" value="RX 6000"> Radeon RX 6000</label>
+                        <label><input type="checkbox" class="family-filter" value="ARC"> Intel ARC</label>
+                    </div>
+                </div>
+
+                <div class="filter-group-vert" style="margin-top: 20px;">
+                    <label>Виробник карти:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" class="brand-filter" value="ASUS"> ASUS</label>
+                        <label><input type="checkbox" class="brand-filter" value="MSI"> MSI</label>
+                        <label><input type="checkbox" class="brand-filter" value="Gigabyte"> Gigabyte</label>
+                        <label><input type="checkbox" class="brand-filter" value="Palit"> Palit</label>
+                        <label><input type="checkbox" class="brand-filter" value="Zotac"> Zotac</label>
+                        <label><input type="checkbox" class="brand-filter" value="Sapphire"> Sapphire</label>
+                        <label><input type="checkbox" class="brand-filter" value="ASRock"> ASRock</label>
+                    </div>
+                </div>
+
+                <div class="filter-group-vert" style="margin-top: 20px;">
+                    <label for="vram-filter">Об'єм пам'яті:</label>
+                    <select id="vram-filter" class="form-select">
+                        <option value="all">Усі об'єми</option>
+                        <option value="8">8 ГБ</option>
+                        <option value="12">12 ГБ</option>
+                        <option value="16">16 ГБ</option>
+                        <option value="20">20 ГБ</option>
+                        <option value="24">24 ГБ</option>
+                    </select>
+                </div>
+
+                <div class="filter-group-vert" style="margin-top: 20px;">
+                    <label>Ціна, ₴:</label>
+                    <div class="price-range">
+                        <input type="number" id="price-min" class="form-input" placeholder="Від">
+                        <span>-</span>
+                        <input type="number" id="price-max" class="form-input" placeholder="До">
+                    </div>
+                </div>
+            </aside>
+
+            <section class="catalog-center">
+                <div class="catalog-header">
+                    <h2>Відеокарти</h2>
+                    <div class="sorting-buttons">
+                        <button id="sort-pop" class="btn-sort active">За популярністю &#9733;</button>
+                        <button id="sort-desc" class="btn-sort">За зниженням ціни &darr;</button>
+                        <button id="sort-asc" class="btn-sort">За зростанням ціни &uarr;</button>
+                    </div>
+                </div>
+
+                <div id="products-container" class="products-grid"></div>
+
+                <div class="load-more-container">
+                    <button id="btn-load-more" class="btn-load-more hidden">Показати ще</button>
+                </div>
+            </section>
+
+            <aside class="right-sidebar">
+                <h3 class="sidebar-title">Новини фірми</h3>
+                <div id="news-container" class="news-list"></div>
+            </aside>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <h4>Про магазин</h4>
+                <ul>
+                    <li><a href="#">Про нас</a></li>
+                    <li><a href="#">Умови гарантії</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакти</h4>
+                <p>м. Чернівці, вул. Коцюбинського, 2</p>
+                <p>Графік: Пн-Пт 10:00 - 18:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PERECUP. Усі права захищено. Лабораторна робота №2.</p>
+        </div>
+    </footer>
+
+    <div id="auth-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="close-btn" id="close-auth">&times;</span>
+            <div class="modal-tabs">
+                <button class="tab-btn active" data-tab="login">Вхід</button>
+                <button class="tab-btn" data-tab="register">Реєстрація</button>
+            </div>
+            <form id="login-form" class="auth-form active-form">
+                <div class="form-group"><input type="text" placeholder="Логін" required></div>
+                <div class="form-group"><input type="password" placeholder="Пароль" required></div>
+                <button type="submit" class="btn-submit">Увійти</button>
+            </form>
+            <form id="register-form" class="auth-form hidden">
+                <div class="form-group"><input type="text" placeholder="Ім'я" required></div>
+                <div class="form-group"><input type="email" placeholder="Email" required></div>
+                <div class="form-group"><input type="password" placeholder="Пароль" required></div>
+                <button type="submit" class="btn-submit">Зареєструватись</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="cart-overlay" class="cart-overlay hidden"></div>
+    <div id="cart-panel" class="cart-panel cart-closed">
+        <div class="cart-header">
+            <h3>Ваш кошик</h3>
+            <span class="close-btn" id="close-cart" style="cursor:pointer; font-size:24px;">&times;</span>
+        </div>
+        <div id="cart-items" class="cart-items-list">
+            <p class="empty-cart">Кошик порожній</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total" style="display:flex; justify-content:space-between; font-weight:bold; margin-bottom:15px;">
+                <span>Разом:</span>
+                <span><span id="cart-total-price">0</span> ₴</span>
+            </div>
+            <button class="btn-checkout" style="width:100%; padding:12px; background:#27ae60; color:#fff; border:none; border-radius:4px; font-weight:bold; cursor:pointer;">
+                Оформити замовлення
+            </button>
+        </div>
+    </div>
+
+    <div id="subscribe-banner" class="subscribe-banner">
+        <div class="container banner-content">
+            <p>Бажаєте отримувати повідомлення про нові надходження та акції?</p>
+            <div class="banner-actions">
+                <button id="btn-accept-sub" class="btn-accept-sub">Прийняти</button>
+                <button id="btn-decline-sub" class="btn-decline-sub">Відхилити</button>
+            </div>
+        </div>
+    </div>
+    <div id="toast-message" class="toast-message">Дякуємо за підписку! 🎉</div>
+
+    <div id="ad-modal" class="modal-overlay hidden" style="z-index: 3000;">
+        <div class="modal-content ad-modal-content">
+            <!-- <h2>Спеціальна пропозиція!</h2>
+            <p class="ad-subtitle">Тільки сьогодні: друга відеокарта зі знижкою 50%!</p>
+             -->
+            <div class="ad-image-wrapper">
+                <img src="img/advertising/casino-advertisement-with-jackpot-big-win-text-effect-it_647434-816.avif" alt="Реклама">
+            </div>
+            
+            <button id="close-ad-btn" class="btn-submit ad-close-btn" disabled>
+                Закрити рекламу (<span id="ad-timer">5</span>)
+            </button>
+        </div>
+    </div>
+
+    <button id="scroll-top-btn" class="scroll-top-btn" title="Повернутись вгору">&#8679;</button>
+
+    <script src="scripts/data.js"></script>
+    <script src="scripts/card.js"></script>
+    <script src="scripts/ui.js"></script>
+    <script src="scripts/main.js"></script>
+    
+</body>
+
+</html>
