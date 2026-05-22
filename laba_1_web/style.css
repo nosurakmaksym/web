@@ -1,0 +1,349 @@
+:root {
+    --bg-main: #f3f4f6;         
+    --bg-surface: #ffffff;      
+    --bg-surface-hover: #f9fafb;
+    
+    --text-primary: #111827;    
+    --text-secondary: #6b7280;  
+    
+    --accent-color: #06b6d4;    
+    --accent-hover: #0891b2;    
+    --accent-shadow: rgba(6, 182, 212, 0.3); 
+    
+    --border-color: #e5e7eb;    
+    
+    --flag-color: #ef4444;      
+    --btn-secondary-bg: #e5e7eb;
+    --btn-secondary-hover: #d1d5db;
+    --btn-secondary-text: #4b5563;
+
+    --radius-main: 12px;        
+    --transition-speed: 0.3s;   
+    --shadow-main: 0 4px 20px rgba(0, 0, 0, 0.05); 
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--text-primary);
+    background-color: var(--bg-main);
+}
+
+.header {
+    background-color: var(--bg-surface);
+    padding: 0.8rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav__list {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav__link {
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color var(--transition-speed) ease;
+    position: relative;
+}
+
+.nav__link:hover {
+    color: var(--accent-color);
+}
+
+.nav__link--active {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.nav__link--active::after {
+    content: '';
+    position: absolute;
+    
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.logo {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+
+.logo__img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
+}
+
+.logo__popup {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 15px;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-speed) ease;
+    transform: translateY(-15px);
+}
+
+
+
+.logo:hover .logo__popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+.popup {
+    background-color: var(--bg-surface);
+    padding: 1.5rem;
+    border-radius: var(--radius-main);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.popup__img {
+    width: 60px;
+    height: 60px;
+    background-color: var(--bg-surface-hover);
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.popup__text {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+
+.main {
+    padding: 3rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+
+
+.container {
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-main);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-main);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+
+.container__title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+
+
+.container__label {
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+
+.container__textarea {
+    width: 100%;
+    height: 12rem;
+    padding: 1.2rem;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-main);
+    font-size: 1rem;
+    font-family: inherit;
+    line-height: 1.6;
+    resize: vertical;
+    outline: none;
+    transition: border-color var(--transition-speed) ease, 
+                box-shadow var(--transition-speed) ease;
+}
+
+.container__textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px var(--accent-shadow);
+}
+
+
+.container__textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.6;
+}
+
+.result {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    align-self: flex-start;
+    margin-top: -0.5rem;
+}
+
+
+.result__value {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+.game__stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+
+.game__flag-count {
+    color: var(--flag-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+
+.board {
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-main);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-main);
+    width: 100%;
+    max-width: 550px;
+    
+    display: grid;
+    gap: 0px;
+    padding: 10px;
+}
+
+.cell {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--text-primary);
+    cursor: pointer;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 90%;
+    font-weight: bold;  
+    user-select: none;
+}
+
+
+
+.game__controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+   
+    border: none;
+    border-radius: var(--radius-main);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+
+
+.button:active {
+    transform: translateY(2px);
+}
+
+.button--restart {
+    background-color: var(--accent-color);
+    color: white;
+    box-shadow: 0 4px 6px -1px var(--accent-shadow);
+}
+
+.button--restart:hover {
+    background-color: var(--accent-hover);
+    box-shadow: 0 6px 8px -1px var(--accent-shadow);
+}
+
+.button--settings {
+    background-color: var(--btn-secondary-bg);
+    color: var(--btn-secondary-text);
+}
+
+.button--settings:hover {
+    background-color: var(--btn-secondary-hover);
+}
+
+.hidden {
+    display: none; 
+}
