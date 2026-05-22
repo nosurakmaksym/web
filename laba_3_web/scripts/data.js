@@ -1,0 +1,26 @@
+const newsData = [
+    { id: 1, title: "Очікується поставка RTX 50-series", date: "2026-05-01", text: "Наступного тижня очікуємо велику партію нових відеокарт NVIDIA.", status: "важливі" },
+    { id: 2, title: "Зміни в графіку роботи", date: "2026-05-05", text: "Магазин працюватиме за скороченим графіком: з 10:00 до 15:00.", status: "звичайні" },
+    { id: 3, title: "УВАГА: Шахраї!", date: "2026-05-07", text: "Оплата лише за офіційними реквізитами IBAN.", status: "дуже важливі" }
+];
+
+const productsData = [
+    { id: 101, name: "Відеокарта ASUS Dual GeForce RTX 4060", price: 13500, brand: "ASUS", vendor: "NVIDIA", family: "RTX 40", vram: "8", popularity: 95, image: "img/products/ASUS_Dual_GeForce_RTX_4060.png", desc: "Чудова карта для 1080p геймінгу. Тиха робота." },
+    { id: 102, name: "Відеокарта MSI GeForce RTX 4060 Ti VENTUS", price: 18200, brand: "MSI", vendor: "NVIDIA", family: "RTX 40", vram: "16", popularity: 88, image: "img/products/MSI_GeForce_RTX_4060_Ti_VENTUS.webp", desc: "Розширений об'єм пам'яті для важких текстур." },
+    { id: 103, name: "Відеокарта Gigabyte GeForce RTX 4070 SUPER", price: 28900, brand: "Gigabyte", vendor: "NVIDIA", family: "RTX 40", vram: "12", popularity: 98, image: "img/products/Gigabyte_GeForce_RTX_4070_SUPER.webp", desc: "Ідеальний вибір для гри у 2K на ультра-налаштуваннях." },
+    { id: 104, name: "Відеокарта ASUS TUF Gaming Radeon RX 7800 XT", price: 24500, brand: "ASUS", vendor: "AMD", family: "RX 7000", vram: "16", popularity: 85, image: "img/products/ASUS_TUF_Gaming_Radeon_RX_7800_XT.png", desc: "Потужне рішення від AMD з масивною системою охолодження." },
+    { id: 105, name: "Відеокарта MSI Suprim X GeForce RTX 4090", price: 75000, brand: "MSI", vendor: "NVIDIA", family: "RTX 40", vram: "24", popularity: 99, image: "img/products/MSI_Suprim_X_GeForce_RTX_4090.webp", desc: "Абсолютний флагман для безкомпромісного геймінгу." },
+    { id: 106, name: "Відеокарта Gigabyte Radeon RX 7600 Gaming OC", price: 11900, brand: "Gigabyte", vendor: "AMD", family: "RX 7000", vram: "8", popularity: 75, image: "img/products/Gigabyte_Radeon_RX_7600_Gaming_OC.webp", desc: "Бюджетна ігрова відеокарта з заводським розгоном." },
+    { id: 107, name: "Відеокарта Palit GeForce RTX 3060 Dual", price: 11500, brand: "Palit", vendor: "NVIDIA", family: "RTX 30", vram: "12", popularity: 92, image: "img/products/Palit_GeForce_RTX_3060_Dual.webp", desc: "Народна улюблениця, 12 ГБ пам'яті за доступною ціною." },
+    { id: 108, name: "Відеокарта Zotac Gaming GeForce RTX 4070 Ti", price: 34000, brand: "Zotac", vendor: "NVIDIA", family: "RTX 40", vram: "12", popularity: 82, image: "img/products/Zotac_Gaming_GeForce_RTX_4070_Ti.jpg", desc: "Висока продуктивність у компактному форм-факторі." },
+    { id: 109, name: "Відеокарта Sapphire NITRO+ Radeon RX 7900 XTX", price: 43500, brand: "Sapphire", vendor: "AMD", family: "RX 7000", vram: "24", popularity: 89, image: "img/products/Sapphire_NITRO_+_Radeon_RX_7900_XTX.webp", desc: "Найпотужніша відеокарта від AMD для 4K геймінгу." },
+    { id: 110, name: "Відеокарта ASRock Intel Arc A770 Phantom Gaming", price: 13200, brand: "ASRock", vendor: "Intel", family: "ARC", vram: "16", popularity: 65, image: "img/products/ASRock_Intel_Arc_A770_Phantom_Gaming.webp", desc: "Відмінна альтернатива в середньому ціновому сегменті з 16 ГБ." },
+    { id: 111, name: "Відеокарта ASUS Dual GeForce RTX 3050", price: 8900, brand: "ASUS", vendor: "NVIDIA", family: "RTX 30", vram: "8", popularity: 90, image: "img/products/ASUS_Dual_GeForce_RTX_3050.jpg", desc: "Базова карта для невимогливих ігор." },
+    { id: 112, name: "Відеокарта MSI Radeon RX 6700 XT MECH 2X", price: 14500, brand: "MSI", vendor: "AMD", family: "RX 6000", vram: "12", popularity: 81, image: "img/products/MSI_Radeon_RX_6700_XT_MECH_2X.webp", desc: "Чудове співвідношення ціни та кадрів за секунду." },
+    { id: 113, name: "Відеокарта Gigabyte AORUS GeForce RTX 4080 SUPER", price: 48900, brand: "Gigabyte", vendor: "NVIDIA", family: "RTX 40", vram: "16", popularity: 94, image: "img/products/Gigabyte_AORUS_GeForce_RTX_4080_SUPER.jpg", desc: "Преміальне виконання з вбудованим LCD екраном." },
+    { id: 114, name: "Відеокарта Palit GeForce RTX 4060 Ti StormX", price: 16800, brand: "Palit", vendor: "NVIDIA", family: "RTX 40", vram: "8", popularity: 84, image: "img/products/Palit_GeForce_RTX_4060_Ti_StormX.webp", desc: "Однокулерна версія для компактних ITX збірок." },
+    { id: 115, name: "Відеокарта Sapphire PULSE Radeon RX 7700 XT", price: 19500, brand: "Sapphire", vendor: "AMD", family: "RX 7000", vram: "12", popularity: 78, image: "img/products/Sapphire_PULSE_Radeon_RX_7700_XT.webp", desc: "Оптимальний вибір для комфортної гри у 1440p." },
+    { id: 116, name: "Відеокарта ASRock Radeon RX 6600 Challenger D", price: 8500, brand: "ASRock", vendor: "AMD", family: "RX 6000", vram: "8", popularity: 87, image: "img/products/ASRock_Radeon_RX_6600_Challenger_D.webp", desc: "Найкраща бюджетна карта для Full HD." }
+];
+
+ 
